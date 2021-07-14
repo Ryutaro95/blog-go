@@ -13,3 +13,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  db:
+    build: 
+      context: "./containers/mysql"
+    env_file: ".env"
+    volumes: 
+      - ./containers/mysql/config/my.cnf:/etc/mysql/conf.d/my.cnf
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  db-data:
