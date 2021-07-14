@@ -18,5 +18,6 @@ func NewHealthCheckPersistence() *HealthCheckPersistence {
 func (hc HealthCheckPersistence) HealthCheckMysql() error {
 	logger.Debug("sql query", zap.String("query", "test"))
 
+	// healthCheckでDBの接続確認まで行う
 	return nil
 }
